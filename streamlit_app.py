@@ -6,7 +6,7 @@ from langchain.chains import ConversationalRetrievalChain
 # Show title and description.
 st.title("💬 Nepal Constitution 2072 Chatbot")
 st.write(
-    "This is a conversational chatbot where you can ask"
+    "This is a conversational chatbot where you can ask "
     "questions regarding the Constitution of Nepal 2072."
 )
 OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
