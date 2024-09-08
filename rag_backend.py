@@ -18,7 +18,6 @@ llm = ChatOpenAI(
     model_name='gpt-3.5-turbo',  
     temperature=0.0  
 )
-
 index_name = "rag-assignment"
 model_name = "text-embedding-ada-002"
 
@@ -38,6 +37,6 @@ qa = ConversationalRetrievalChain.from_llm(
     retriever=retriever,
     memory=memory,
     chain_type="stuff", 
-    return_source_documents=True,
+    return_source_documents=False,
     return_generated_question=True,
 )

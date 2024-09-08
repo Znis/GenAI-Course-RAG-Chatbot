@@ -1,5 +1,5 @@
 import streamlit as st
-from rag_backend import qa
+from rag_backend import qa, memory
 from utils import handle_streaming_json
 
 # Show title and description.
@@ -8,11 +8,11 @@ st.write(
     "This is a conversational chatbot where you can ask "
     "questions regarding the Constitution of Nepal 2072."
 )
-
 # Create a session state variable to store the chat messages. This ensures that the
 # messages persist across reruns.
 if len(st.session_state) <= 0:
     st.session_state.messages = []
+    memory.clear()
 
 # Display the existing chat messages via `st.chat_message`.
 for message in st.session_state.messages:
@@ -27,7 +27,6 @@ if prompt := st.chat_input("Ask a question"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
-
     # Generate a response using the OpenAI API.
     output = qa.stream({'question': prompt})
     # Stream the response to the chat using `st.write_stream`, then store it in 
