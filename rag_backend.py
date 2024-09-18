@@ -18,7 +18,7 @@ llm = ChatOpenAI(
     model_name='gpt-3.5-turbo',  
     temperature=0.0  
 )
-index_name = "rag-assignment"
+index_name = "constitution-rag"
 model_name = "text-embedding-ada-002"
 
 embeddings = OpenAIEmbeddings(
