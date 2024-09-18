@@ -25,7 +25,7 @@ embeddings = OpenAIEmbeddings(
     model=model_name,
     openai_api_key=OPENAI_API_KEY
 )
-vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings, pinecone_api_key=PINECONE_API_KEY, text_key='nepal-constitution-2072')
+vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings, pinecone_api_key=PINECONE_API_KEY, text_key='text')
 memory = ConversationBufferMemory(
     memory_key="chat_history",
     return_messages=True,
